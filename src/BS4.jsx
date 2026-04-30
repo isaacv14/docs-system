@@ -190,7 +190,6 @@ export default function BeautifulSoupDocs() {
           border-bottom: 1px solid var(--border);
           position: relative;
           overflow: hidden;
-          width: 100%;
         }
 
         .hero::after {
@@ -562,12 +561,12 @@ export default function BeautifulSoupDocs() {
                   <div className="code-dots"><span></span><span></span><span></span></div>
                   <div className="code-lang">bash</div>
                 </div>
-                <pre><span className="cm"># Install Beautiful Soup</span>
+                <pre dangerouslySetInnerHTML={{ __html: `<span class="cm"># Install Beautiful Soup</span>
 pip install beautifulsoup4
 
-<span className="cm"># Install recommended parsers</span>
+<span class="cm"># Install recommended parsers</span>
 pip install lxml
-pip install html5lib</pre>
+pip install html5lib` }}></pre>
               </div>
               <div className="callout tip"><strong>Tip:</strong> Use <code>lxml</code> for fast, lenient HTML parsing. Use <code>html5lib</code> for the most accurate parsing of modern HTML. Use Python's built-in <code>html.parser</code> when you have no external dependencies.</div>
             </section>
@@ -582,15 +581,15 @@ pip install html5lib</pre>
                   <div className="code-dots"><span></span><span></span><span></span></div>
                   <div className="code-lang">python</div>
                 </div>
-                <pre><span className="kw">from</span> bs4 <span className="kw">import</span> BeautifulSoup
-<span className="kw">import</span> requests
+                <pre dangerouslySetInnerHTML={{ __html: `<span class="kw">from</span> bs4 <span class="kw">import</span> BeautifulSoup
+<span class="kw">import</span> requests
 
-<span className="cm"># From a URL</span>
-<span className="vr">res</span> = requests.<span className="fn">get</span>(<span className="st">"https://example.com"</span>)
-<span className="vr">soup</span> = <span className="fn">BeautifulSoup</span>(res.text, <span className="st">"lxml"</span>)
+<span class="cm"># From a URL</span>
+<span class="vr">res</span> = requests.<span class="fn">get</span>(<span class="st">"https://example.com"</span>)
+<span class="vr">soup</span> = <span class="fn">BeautifulSoup</span>(res.text, <span class="st">"lxml"</span>)
 
-<span className="cm"># From a string</span>
-<span className="vr">html</span> = <span className="st">"""
+<span class="cm"># From a string</span>
+<span class="vr">html</span> = <span class="st">"""
 &lt;html&gt;
   &lt;head&gt;&lt;title&gt;My Page&lt;/title&gt;&lt;/head&gt;
   &lt;body&gt;
@@ -599,12 +598,12 @@ pip install html5lib</pre>
   &lt;/body&gt;
 &lt;/html&gt;
 """</span>
-<span className="vr">soup</span> = <span className="fn">BeautifulSoup</span>(html, <span className="st">"lxml"</span>)
+<span class="vr">soup</span> = <span class="fn">BeautifulSoup</span>(html, <span class="st">"lxml"</span>)
 
-<span className="cm"># Basic access</span>
-<span className="kw">print</span>(soup.title.string)       <span className="cm"># "My Page"</span>
-<span className="kw">print</span>(soup.p[<span className="st">"class"</span>])         <span className="cm"># ["intro"]</span>
-<span className="kw">print</span>(soup.a[<span className="st">"href"</span>])          <span className="cm"># "/about"</span></pre>
+<span class="cm"># Basic access</span>
+<span class="kw">print</span>(soup.title.string)       <span class="cm"># "My Page"</span>
+<span class="kw">print</span>(soup.p[<span class="st">"class"</span>])         <span class="cm"># ["intro"]</span>
+<span class="kw">print</span>(soup.a[<span class="st">"href"</span>])          <span class="cm"># "/about"</span>` }}></pre>
               </div>
 
             </section>
@@ -645,11 +644,11 @@ pip install html5lib</pre>
                   <div className="code-dots"><span></span><span></span><span></span></div>
                   <div className="code-lang">python</div>
                 </div>
-                <pre><span className="vr">tag</span> = soup.a
-<span className="kw">print</span>(tag.name)          <span className="cm"># "a"</span>
-<span className="kw">print</span>(tag.attrs)         <span className="cm"># {"{"}"href": "/about"{"}"}</span>
-<span className="kw">print</span>(tag[<span className="st">"href"</span>])       <span className="cm"># "/about"</span>
-<span className="kw">print</span>(tag.get(<span className="st">"class"</span>)) <span className="cm"># None (safe access)</span></pre>
+                <pre dangerouslySetInnerHTML={{ __html: `<span class="vr">tag</span> = soup.a
+<span class="kw">print</span>(tag.name)          <span class="cm"># "a"</span>
+<span class="kw">print</span>(tag.attrs)         <span class="cm"># {"href": "/about"}</span>
+<span class="kw">print</span>(tag[<span class="st">"href"</span>])       <span class="cm"># "/about"</span>
+<span class="kw">print</span>(tag.get(<span class="st">"class"</span>)) <span class="cm"># None (safe access)</span>` }}></pre>
               </div>
 
               <h3>NavigableString</h3>
@@ -659,10 +658,10 @@ pip install html5lib</pre>
                   <div className="code-dots"><span></span><span></span><span></span></div>
                   <div className="code-lang">python</div>
                 </div>
-                <pre><span className="vr">s</span> = soup.p.string       <span className="cm"># NavigableString</span>
-<span className="kw">print</span>(type(s))          <span className="cm"># &lt;class 'bs4.element.NavigableString'&gt;</span>
-<span className="kw">print</span>(str(s))           <span className="cm"># "Hello world!"</span>
-<span className="kw">print</span>(s.parent.name)    <span className="cm"># "p"</span></pre>
+                <pre dangerouslySetInnerHTML={{ __html: `<span class="vr">s</span> = soup.p.string       <span class="cm"># NavigableString</span>
+<span class="kw">print</span>(type(s))          <span class="cm"># &lt;class 'bs4.element.NavigableString'&gt;</span>
+<span class="kw">print</span>(str(s))           <span class="cm"># "Hello world!"</span>
+<span class="kw">print</span>(s.parent.name)    <span class="cm"># "p"</span>` }}></pre>
               </div>
 
               <h3>Comment</h3>
@@ -672,10 +671,10 @@ pip install html5lib</pre>
                   <div className="code-dots"><span></span><span></span><span></span></div>
                   <div className="code-lang">python</div>
                 </div>
-                <pre><span className="vr">html</span> = <span className="st">"&lt;p&gt;&lt;!-- A comment --&gt;&lt;/p&gt;"</span>
-<span className="vr">soup</span> = <span className="fn">BeautifulSoup</span>(html, <span className="st">"lxml"</span>)
-<span className="vr">comment</span> = soup.p.string
-<span className="kw">print</span>(type(comment))    <span className="cm"># &lt;class 'bs4.element.Comment'&gt;</span></pre>
+                <pre dangerouslySetInnerHTML={{ __html: `<span class="vr">html</span> = <span class="st">"&lt;p&gt;&lt;!-- A comment --&gt;&lt;/p&gt;"</span>
+<span class="vr">soup</span> = <span class="fn">BeautifulSoup</span>(html, <span class="st">"lxml"</span>)
+<span class="vr">comment</span> = soup.p.string
+<span class="kw">print</span>(type(comment))    <span class="cm"># &lt;class 'bs4.element.Comment'&gt;</span>` }}></pre>
               </div>
             </section>
 
@@ -691,24 +690,24 @@ pip install html5lib</pre>
                   <div className="code-dots"><span></span><span></span><span></span></div>
                   <div className="code-lang">python</div>
                 </div>
-                <pre><span className="cm"># Direct child access by tag name</span>
-soup.head           <span className="cm"># first &lt;head&gt; tag</span>
-soup.body.p         <span className="cm"># first &lt;p&gt; inside &lt;body&gt;</span>
+                <pre dangerouslySetInnerHTML={{ __html: `<span class="cm"># Direct child access by tag name</span>
+soup.head           <span class="cm"># first &lt;head&gt; tag</span>
+soup.body.p         <span class="cm"># first &lt;p&gt; inside &lt;body&gt;</span>
 
-<span className="cm"># .children — direct children as a list-iterator</span>
-<span className="kw">for</span> child <span className="kw">in</span> soup.body.children:
-    <span className="kw">print</span>(child)
+<span class="cm"># .children — direct children as a list-iterator</span>
+<span class="kw">for</span> child <span class="kw">in</span> soup.body.children:
+    <span class="kw">print</span>(child)
 
-<span className="cm"># .descendants — all nested descendants</span>
-<span className="kw">for</span> desc <span className="kw">in</span> soup.body.descendants:
-    <span className="kw">print</span>(desc)
+<span class="cm"># .descendants — all nested descendants</span>
+<span class="kw">for</span> desc <span class="kw">in</span> soup.body.descendants:
+    <span class="kw">print</span>(desc)
 
-<span className="cm"># .string — only if the tag has a single string</span>
-soup.title.string   <span className="cm"># "My Page"</span>
+<span class="cm"># .string — only if the tag has a single string</span>
+soup.title.string   <span class="cm"># "My Page"</span>
 
-<span className="cm"># .strings — iterate over all strings</span>
-<span className="kw">for</span> s <span className="kw">in</span> soup.stripped_strings:
-    <span className="kw">print</span>(repr(s))</pre>
+<span class="cm"># .strings — iterate over all strings</span>
+<span class="kw">for</span> s <span class="kw">in</span> soup.stripped_strings:
+    <span class="kw">print</span>(repr(s))` }}></pre>
               </div>
 
               <h3>Going Up</h3>
@@ -717,12 +716,12 @@ soup.title.string   <span className="cm"># "My Page"</span>
                   <div className="code-dots"><span></span><span></span><span></span></div>
                   <div className="code-lang">python</div>
                 </div>
-                <pre><span className="cm"># .parent</span>
-soup.p.parent.name          <span className="cm"># "body"</span>
+                <pre dangerouslySetInnerHTML={{ __html: `<span class="cm"># .parent</span>
+soup.p.parent.name          <span class="cm"># "body"</span>
 
-<span className="cm"># .parents — iterate all ancestors</span>
-<span className="kw">for</span> parent <span className="kw">in</span> soup.a.parents:
-    <span className="kw">print</span>(parent.name)</pre>
+<span class="cm"># .parents — iterate all ancestors</span>
+<span class="kw">for</span> parent <span class="kw">in</span> soup.a.parents:
+    <span class="kw">print</span>(parent.name)` }}></pre>
               </div>
 
               <h3>Going Sideways</h3>
@@ -731,17 +730,17 @@ soup.p.parent.name          <span className="cm"># "body"</span>
                   <div className="code-dots"><span></span><span></span><span></span></div>
                   <div className="code-lang">python</div>
                 </div>
-                <pre><span className="cm"># .next_sibling / .previous_sibling</span>
+                <pre dangerouslySetInnerHTML={{ __html: `<span class="cm"># .next_sibling / .previous_sibling</span>
 soup.p.next_sibling
 soup.p.previous_sibling
 
-<span className="cm"># .next_siblings / .previous_siblings (iterators)</span>
-<span className="kw">for</span> sib <span className="kw">in</span> soup.p.next_siblings:
-    <span className="kw">print</span>(sib)
+<span class="cm"># .next_siblings / .previous_siblings (iterators)</span>
+<span class="kw">for</span> sib <span class="kw">in</span> soup.p.next_siblings:
+    <span class="kw">print</span>(sib)
 
-<span className="cm"># .next_element / .previous_element</span>
-<span className="cm"># Navigate in document order (not just siblings)</span>
-soup.p.next_element</pre>
+<span class="cm"># .next_element / .previous_element</span>
+<span class="cm"># Navigate in document order (not just siblings)</span>
+soup.p.next_element` }}></pre>
               </div>
             </section>
 
@@ -756,38 +755,38 @@ soup.p.next_element</pre>
                   <div className="code-dots"><span></span><span></span><span></span></div>
                   <div className="code-lang">python</div>
                 </div>
-                <pre><span className="cm"># By tag name</span>
-soup.<span className="fn">find</span>(<span className="st">"p"</span>)
-soup.<span className="fn">find_all</span>(<span className="st">"a"</span>)
+                <pre dangerouslySetInnerHTML={{ __html: `<span class="cm"># By tag name</span>
+soup.<span class="fn">find</span>(<span class="st">"p"</span>)
+soup.<span class="fn">find_all</span>(<span class="st">"a"</span>)
 
-<span className="cm"># By CSS class</span>
-soup.<span className="fn">find</span>(<span className="st">"p"</span>, class_=<span className="st">"intro"</span>)
-soup.<span className="fn">find_all</span>(class_=<span className="st">"highlight"</span>)
+<span class="cm"># By CSS class</span>
+soup.<span class="fn">find</span>(<span class="st">"p"</span>, class_=<span class="st">"intro"</span>)
+soup.<span class="fn">find_all</span>(class_=<span class="st">"highlight"</span>)
 
-<span className="cm"># By ID</span>
-soup.<span className="fn">find</span>(id=<span className="st">"main"</span>)
+<span class="cm"># By ID</span>
+soup.<span class="fn">find</span>(id=<span class="st">"main"</span>)
 
-<span className="cm"># By attribute</span>
-soup.<span className="fn">find_all</span>(<span className="st">"a"</span>, href=<span className="kw">True</span>)         <span className="cm"># any &lt;a&gt; with href</span>
-soup.<span className="fn">find_all</span>(<span className="st">"a"</span>, href=<span className="st">"/about"</span>)    <span className="cm"># exact match</span>
+<span class="cm"># By attribute</span>
+soup.<span class="fn">find_all</span>(<span class="st">"a"</span>, href=<span class="kw">True</span>)         <span class="cm"># any &lt;a&gt; with href</span>
+soup.<span class="fn">find_all</span>(<span class="st">"a"</span>, href=<span class="st">"/about"</span>)    <span class="cm"># exact match</span>
 
-<span className="cm"># With regex</span>
-<span className="kw">import</span> re
-soup.<span className="fn">find_all</span>(<span className="st">"a"</span>, href=re.<span className="fn">compile</span>(<span className="st">r"^https"</span>))
+<span class="cm"># With regex</span>
+<span class="kw">import</span> re
+soup.<span class="fn">find_all</span>(<span class="st">"a"</span>, href=re.<span class="fn">compile</span>(<span class="st">r"^https"</span>))
 
-<span className="cm"># Multiple tags at once</span>
-soup.<span className="fn">find_all</span>([<span className="st">"h1"</span>, <span className="st">"h2"</span>, <span className="st">"h3"</span>])
+<span class="cm"># Multiple tags at once</span>
+soup.<span class="fn">find_all</span>([<span class="st">"h1"</span>, <span class="st">"h2"</span>, <span class="st">"h3"</span>])
 
-<span className="cm"># Limit results</span>
-soup.<span className="fn">find_all</span>(<span className="st">"p"</span>, limit=<span className="nm">3</span>)
+<span class="cm"># Limit results</span>
+soup.<span class="fn">find_all</span>(<span class="st">"p"</span>, limit=<span class="nm">3</span>)
 
-<span className="cm"># Search within a tag (not the whole document)</span>
-<span className="vr">body</span> = soup.body
-body.<span className="fn">find_all</span>(<span className="st">"p"</span>)
+<span class="cm"># Search within a tag (not the whole document)</span>
+<span class="vr">body</span> = soup.body
+body.<span class="fn">find_all</span>(<span class="st">"p"</span>)
 
-<span className="cm"># Text search</span>
-soup.<span className="fn">find_all</span>(string=<span className="st">"Hello"</span>)
-soup.<span className="fn">find_all</span>(string=re.<span className="fn">compile</span>(<span className="st">"hello"</span>, re.I))</pre>
+<span class="cm"># Text search</span>
+soup.<span class="fn">find_all</span>(string=<span class="st">"Hello"</span>)
+soup.<span class="fn">find_all</span>(string=re.<span class="fn">compile</span>(<span class="st">"hello"</span>, re.I))` }}></pre>
               </div>
 
               <div className="callout info"><strong>Note:</strong> <code>soup("a")</code> is shorthand for <code>soup.find_all("a")</code>. Very useful in loops.</div>
@@ -798,16 +797,16 @@ soup.<span className="fn">find_all</span>(string=re.<span className="fn">compile
                   <div className="code-dots"><span></span><span></span><span></span></div>
                   <div className="code-lang">python</div>
                 </div>
-                <pre><span className="cm"># Directional search methods</span>
-soup.a.<span className="fn">find_parent</span>(<span className="st">"div"</span>)
-soup.a.<span className="fn">find_parents</span>(<span className="st">"div"</span>)
+                <pre dangerouslySetInnerHTML={{ __html: `<span class="cm"># Directional search methods</span>
+soup.a.<span class="fn">find_parent</span>(<span class="st">"div"</span>)
+soup.a.<span class="fn">find_parents</span>(<span class="st">"div"</span>)
 
-soup.p.<span className="fn">find_next_sibling</span>(<span className="st">"p"</span>)
-soup.p.<span className="fn">find_next_siblings</span>(<span className="st">"p"</span>)
+soup.p.<span class="fn">find_next_sibling</span>(<span class="st">"p"</span>)
+soup.p.<span class="fn">find_next_siblings</span>(<span class="st">"p"</span>)
 
-soup.p.<span className="fn">find_previous_sibling</span>()
-soup.p.<span className="fn">find_all_next</span>(<span className="st">"a"</span>)
-soup.p.<span className="fn">find_all_previous</span>(<span className="st">"p"</span>)</pre>
+soup.p.<span class="fn">find_previous_sibling</span>()
+soup.p.<span class="fn">find_all_next</span>(<span class="st">"a"</span>)
+soup.p.<span class="fn">find_all_previous</span>(<span class="st">"p"</span>)` }}></pre>
               </div>
             </section>
 
@@ -821,33 +820,33 @@ soup.p.<span className="fn">find_all_previous</span>(<span className="st">"p"</s
                   <div className="code-dots"><span></span><span></span><span></span></div>
                   <div className="code-lang">python</div>
                 </div>
-                <pre><span className="cm"># Tag</span>
-soup.<span className="fn">select</span>(<span className="st">"p"</span>)
+                <pre dangerouslySetInnerHTML={{ __html: `<span class="cm"># Tag</span>
+soup.<span class="fn">select</span>(<span class="st">"p"</span>)
 
-<span className="cm"># Class</span>
-soup.<span className="fn">select</span>(<span className="st">".intro"</span>)
+<span class="cm"># Class</span>
+soup.<span class="fn">select</span>(<span class="st">".intro"</span>)
 
-<span className="cm"># ID</span>
-soup.<span className="fn">select_one</span>(<span className="st">"#main"</span>)
+<span class="cm"># ID</span>
+soup.<span class="fn">select_one</span>(<span class="st">"#main"</span>)
 
-<span className="cm"># Descendant</span>
-soup.<span className="fn">select</span>(<span className="st">"div p"</span>)
+<span class="cm"># Descendant</span>
+soup.<span class="fn">select</span>(<span class="st">"div p"</span>)
 
-<span className="cm"># Direct child</span>
-soup.<span className="fn">select</span>(<span className="st">"div &gt; p"</span>)
+<span class="cm"># Direct child</span>
+soup.<span class="fn">select</span>(<span class="st">"div &gt; p"</span>)
 
-<span className="cm"># Attribute selector</span>
-soup.<span className="fn">select</span>(<span className="st">'a[href]'</span>)
-soup.<span className="fn">select</span>(<span className="st">'a[href^="https"]'</span>)   <span className="cm"># starts with</span>
-soup.<span className="fn">select</span>(<span className="st">'a[href$=".pdf"]'</span>)    <span className="cm"># ends with</span>
-soup.<span className="fn">select</span>(<span className="st">'a[href*="example"]'</span>)  <span className="cm"># contains</span>
+<span class="cm"># Attribute selector</span>
+soup.<span class="fn">select</span>(<span class="st">'a[href]'</span>)
+soup.<span class="fn">select</span>(<span class="st">'a[href^="https"]'</span>)   <span class="cm"># starts with</span>
+soup.<span class="fn">select</span>(<span class="st">'a[href$=".pdf"]'</span>)    <span class="cm"># ends with</span>
+soup.<span class="fn">select</span>(<span class="st">'a[href*="example"]'</span>)  <span class="cm"># contains</span>
 
-<span className="cm"># Pseudo-class</span>
-soup.<span className="fn">select</span>(<span className="st">"li:nth-of-type(1)"</span>)
-soup.<span className="fn">select</span>(<span className="st">"p:first-child"</span>)
+<span class="cm"># Pseudo-class</span>
+soup.<span class="fn">select</span>(<span class="st">"li:nth-of-type(1)"</span>)
+soup.<span class="fn">select</span>(<span class="st">"p:first-child"</span>)
 
-<span className="cm"># Multiple selectors</span>
-soup.<span className="fn">select</span>(<span className="st">"h1, h2, h3"</span>)</pre>
+<span class="cm"># Multiple selectors</span>
+soup.<span class="fn">select</span>(<span class="st">"h1, h2, h3"</span>)` }}></pre>
               </div>
             </section>
 
@@ -863,17 +862,17 @@ soup.<span className="fn">select</span>(<span className="st">"h1, h2, h3"</span>
                   <div className="code-dots"><span></span><span></span><span></span></div>
                   <div className="code-lang">python</div>
                 </div>
-                <pre><span className="vr">tag</span> = soup.<span className="fn">find</span>(<span className="st">"p"</span>)
+                <pre dangerouslySetInnerHTML={{ __html: `<span class="vr">tag</span> = soup.<span class="fn">find</span>(<span class="st">"p"</span>)
 
-<span className="cm"># Set an attribute</span>
-tag[<span className="st">"class"</span>] = <span className="st">"new-class"</span>
-tag[<span className="st">"data-id"</span>] = <span className="st">"42"</span>
+<span class="cm"># Set an attribute</span>
+tag[<span class="st">"class"</span>] = <span class="st">"new-class"</span>
+tag[<span class="st">"data-id"</span>] = <span class="st">"42"</span>
 
-<span className="cm"># Delete an attribute</span>
-<span className="kw">del</span> tag[<span className="st">"class"</span>]
+<span class="cm"># Delete an attribute</span>
+<span class="kw">del</span> tag[<span class="st">"class"</span>]
 
-<span className="cm"># Change the string inside a tag</span>
-tag.string = <span className="st">"New text content"</span></pre>
+<span class="cm"># Change the string inside a tag</span>
+tag.string = <span class="st">"New text content"</span>` }}></pre>
               </div>
 
               <h3>Inserting & Moving Tags</h3>
@@ -882,25 +881,25 @@ tag.string = <span className="st">"New text content"</span></pre>
                   <div className="code-dots"><span></span><span></span><span></span></div>
                   <div className="code-lang">python</div>
                 </div>
-                <pre><span className="kw">from</span> bs4 <span className="kw">import</span> BeautifulSoup, Tag, NavigableString
+                <pre dangerouslySetInnerHTML={{ __html: `<span class="kw">from</span> bs4 <span class="kw">import</span> BeautifulSoup, Tag, NavigableString
 
-<span className="cm"># append() — add to end of tag's children</span>
-<span className="vr">new_tag</span> = soup.<span className="fn">new_tag</span>(<span className="st">"a"</span>, href=<span className="st">"/new"</span>)
-new_tag.string = <span className="st">"Click here"</span>
-soup.body.<span className="fn">append</span>(new_tag)
+<span class="cm"># append() — add to end of tag's children</span>
+<span class="vr">new_tag</span> = soup.<span class="fn">new_tag</span>(<span class="st">"a"</span>, href=<span class="st">"/new"</span>)
+new_tag.string = <span class="st">"Click here"</span>
+soup.body.<span class="fn">append</span>(new_tag)
 
-<span className="cm"># insert() — at a specific index</span>
-soup.body.<span className="fn">insert</span>(<span className="nm">0</span>, new_tag)
+<span class="cm"># insert() — at a specific index</span>
+soup.body.<span class="fn">insert</span>(<span class="nm">0</span>, new_tag)
 
-<span className="cm"># insert_before() / insert_after()</span>
-soup.p.<span className="fn">insert_before</span>(<span className="st">"Some text"</span>)
-soup.p.<span className="fn">insert_after</span>(new_tag)
+<span class="cm"># insert_before() / insert_after()</span>
+soup.p.<span class="fn">insert_before</span>(<span class="st">"Some text"</span>)
+soup.p.<span class="fn">insert_after</span>(new_tag)
 
-<span className="cm"># wrap() — wrap a tag in another tag</span>
-soup.p.<span className="fn">wrap</span>(soup.<span className="fn">new_tag</span>(<span className="st">"div"</span>))
+<span class="cm"># wrap() — wrap a tag in another tag</span>
+soup.p.<span class="fn">wrap</span>(soup.<span class="fn">new_tag</span>(<span class="st">"div"</span>))
 
-<span className="cm"># unwrap() — remove a tag but keep its children</span>
-soup.p.<span className="fn">unwrap</span>()</pre>
+<span class="cm"># unwrap() — remove a tag but keep its children</span>
+soup.p.<span class="fn">unwrap</span>()` }}></pre>
               </div>
 
               <h3>Removing Tags</h3>
@@ -909,15 +908,15 @@ soup.p.<span className="fn">unwrap</span>()</pre>
                   <div className="code-dots"><span></span><span></span><span></span></div>
                   <div className="code-lang">python</div>
                 </div>
-                <pre><span className="cm"># decompose() — remove from tree AND destroy</span>
-soup.<span className="fn">find</span>(<span className="st">"script"</span>).<span className="fn">decompose</span>()
+                <pre dangerouslySetInnerHTML={{ __html: `<span class="cm"># decompose() — remove from tree AND destroy</span>
+soup.<span class="fn">find</span>(<span class="st">"script"</span>).<span class="fn">decompose</span>()
 
-<span className="cm"># extract() — remove and return the tag</span>
-<span className="vr">removed</span> = soup.<span className="fn">find</span>(<span className="st">"style"</span>).<span className="fn">extract</span>()
+<span class="cm"># extract() — remove and return the tag</span>
+<span class="vr">removed</span> = soup.<span class="fn">find</span>(<span class="st">"style"</span>).<span class="fn">extract</span>()
 
-<span className="cm"># remove all script tags</span>
-<span className="kw">for</span> s <span className="kw">in</span> soup.<span className="fn">find_all</span>(<span className="st">"script"</span>):
-    s.<span className="fn">decompose</span>()</pre>
+<span class="cm"># remove all script tags</span>
+<span class="kw">for</span> s <span class="kw">in</span> soup.<span class="fn">find_all</span>(<span class="st">"script"</span>):
+    s.<span class="fn">decompose</span>()` }}></pre>
               </div>
             </section>
 
@@ -932,20 +931,20 @@ soup.<span className="fn">find</span>(<span className="st">"script"</span>).<spa
                   <div className="code-dots"><span></span><span></span><span></span></div>
                   <div className="code-lang">python</div>
                 </div>
-                <pre><span className="cm"># Prettified HTML string</span>
-<span className="kw">print</span>(soup.<span className="fn">prettify</span>())
+                <pre dangerouslySetInnerHTML={{ __html: `<span class="cm"># Prettified HTML string</span>
+<span class="kw">print</span>(soup.<span class="fn">prettify</span>())
 
-<span className="cm"># Compact HTML string</span>
-<span className="kw">print</span>(str(soup))
-<span className="kw">print</span>(str(soup.p))
+<span class="cm"># Compact HTML string</span>
+<span class="kw">print</span>(str(soup))
+<span class="kw">print</span>(str(soup.p))
 
-<span className="cm"># Get only text (no tags)</span>
-soup.<span className="fn">get_text</span>()                     <span className="cm"># all text, concatenated</span>
-soup.<span className="fn">get_text</span>(separator=<span className="st">"\n"</span>)       <span className="cm"># with custom separator</span>
-soup.<span className="fn">get_text</span>(strip=<span className="kw">True</span>)          <span className="cm"># strip whitespace
+<span class="cm"># Get only text (no tags)</span>
+soup.<span class="fn">get_text</span>()                     <span class="cm"># all text, concatenated</span>
+soup.<span class="fn">get_text</span>(separator=<span class="st">"\\n"</span>)       <span class="cm"># with custom separator</span>
+soup.<span class="fn">get_text</span>(strip=<span class="kw">True</span>)          <span class="cm"># strip whitespace
 
 # .text shorthand (same as get_text())</span>
-soup.p.text</pre>
+soup.p.text` }}></pre>
               </div>
 
               <div className="callout warn"><strong>Warning:</strong> <code>.string</code> returns <code>None</code> if a tag has more than one child. Use <code>.get_text()</code> when a tag contains mixed content.</div>
@@ -956,19 +955,19 @@ soup.p.text</pre>
                   <div className="code-dots"><span></span><span></span><span></span></div>
                   <div className="code-lang">python</div>
                 </div>
-                <pre><span className="cm"># Extract all paragraph texts</span>
-texts = [p.<span className="fn">get_text</span>(strip=<span className="kw">True</span>) <span className="kw">for</span> p <span className="kw">in</span> soup.<span className="fn">find_all</span>(<span className="st">"p"</span>)]
+                <pre dangerouslySetInnerHTML={{ __html: `<span class="cm"># Extract all paragraph texts</span>
+texts = [p.<span class="fn">get_text</span>(strip=<span class="kw">True</span>) <span class="kw">for</span> p <span class="kw">in</span> soup.<span class="fn">find_all</span>(<span class="st">"p"</span>)]
 
-<span className="cm"># Extract all links</span>
-links = [(a.<span className="fn">get_text</span>(strip=<span className="kw">True</span>), a[<span className="st">"href"</span>])
-         <span className="kw">for</span> a <span className="kw">in</span> soup.<span className="fn">find_all</span>(<span className="st">"a"</span>, href=<span className="kw">True</span>)]
+<span class="cm"># Extract all links</span>
+links = [(a.<span class="fn">get_text</span>(strip=<span class="kw">True</span>), a[<span class="st">"href"</span>])
+         <span class="kw">for</span> a <span class="kw">in</span> soup.<span class="fn">find_all</span>(<span class="st">"a"</span>, href=<span class="kw">True</span>)]
 
-<span className="cm"># Extract a table into a list of dicts</span>
-<span className="vr">headers</span> = [th.<span className="fn">get_text</span>(strip=<span className="kw">True</span>) <span className="kw">for</span> th <span className="kw">in</span> soup.<span className="fn">select</span>(<span className="st">"thead th"</span>)]
-<span className="vr">rows</span> = []
-<span className="kw">for</span> tr <span className="kw">in</span> soup.<span className="fn">select</span>(<span className="st">"tbody tr"</span>):
-    vals = [td.<span className="fn">get_text</span>(strip=<span className="kw">True</span>) <span className="kw">for</span> td <span className="kw">in</span> tr.<span className="fn">find_all</span>(<span className="st">"td"</span>)]
-    rows.<span className="fn">append</span>(dict(<span className="fn">zip</span>(headers, vals)))</pre>
+<span class="cm"># Extract a table into a list of dicts</span>
+<span class="vr">headers</span> = [th.<span class="fn">get_text</span>(strip=<span class="kw">True</span>) <span class="kw">for</span> th <span class="kw">in</span> soup.<span class="fn">select</span>(<span class="st">"thead th"</span>)]
+<span class="vr">rows</span> = []
+<span class="kw">for</span> tr <span class="kw">in</span> soup.<span class="fn">select</span>(<span class="st">"tbody tr"</span>):
+    vals = [td.<span class="fn">get_text</span>(strip=<span class="kw">True</span>) <span class="kw">for</span> td <span class="kw">in</span> tr.<span class="fn">find_all</span>(<span class="st">"td"</span>)]
+    rows.<span class="fn">append</span>(dict(<span class="fn">zip</span>(headers, vals)))` }}></pre>
               </div>
             </section>
 
@@ -983,21 +982,21 @@ links = [(a.<span className="fn">get_text</span>(strip=<span className="kw">True
                   <div className="code-dots"><span></span><span></span><span></span></div>
                   <div className="code-lang">python</div>
                 </div>
-                <pre><span className="cm"># True — match any tag</span>
-soup.<span className="fn">find_all</span>(<span className="kw">True</span>)
+                <pre dangerouslySetInnerHTML={{ __html: `<span class="cm"># True — match any tag</span>
+soup.<span class="fn">find_all</span>(<span class="kw">True</span>)
 
-<span className="cm"># Callable filter — define custom logic</span>
-<span className="kw">def</span> <span className="fn">has_class_not_id</span>(tag):
-    <span className="kw">return</span> tag.<span className="fn">has_attr</span>(<span className="st">"class"</span>) <span className="kw">and not</span> tag.<span className="fn">has_attr</span>(<span className="st">"id"</span>)
+<span class="cm"># Callable filter — define custom logic</span>
+<span class="kw">def</span> <span class="fn">has_class_not_id</span>(tag):
+    <span class="kw">return</span> tag.<span class="fn">has_attr</span>(<span class="st">"class"</span>) <span class="kw">and not</span> tag.<span class="fn">has_attr</span>(<span class="st">"id"</span>)
 
-soup.<span className="fn">find_all</span>(has_class_not_id)
+soup.<span class="fn">find_all</span>(has_class_not_id)
 
-<span className="cm"># Lambda shorthand</span>
-soup.<span className="fn">find_all</span>(<span className="kw">lambda</span> tag: tag.name == <span className="st">"p"</span> <span className="kw">and</span> <span className="st">"intro"</span> <span className="kw">in</span> tag.get(<span className="st">"class"</span>, []))
+<span class="cm"># Lambda shorthand</span>
+soup.<span class="fn">find_all</span>(<span class="kw">lambda</span> tag: tag.name == <span class="st">"p"</span> <span class="kw">and</span> <span class="st">"intro"</span> <span class="kw">in</span> tag.get(<span class="st">"class"</span>, []))
 
-<span className="cm"># Regex on tag name</span>
-<span className="kw">import</span> re
-soup.<span className="fn">find_all</span>(re.<span className="fn">compile</span>(<span className="st">r"^h[1-6]$"</span>))  <span className="cm"># all headings</span></pre>
+<span class="cm"># Regex on tag name</span>
+<span class="kw">import</span> re
+soup.<span class="fn">find_all</span>(re.<span class="fn">compile</span>(<span class="st">r"^h[1-6]$"</span>))  <span class="cm"># all headings</span>` }}></pre>
               </div>
             </section>
 
@@ -1012,18 +1011,18 @@ soup.<span className="fn">find_all</span>(re.<span className="fn">compile</span>
                   <div className="code-dots"><span></span><span></span><span></span></div>
                   <div className="code-lang">python</div>
                 </div>
-                <pre><span className="cm"># Check detected encoding</span>
-soup.original_encoding       <span className="cm"># e.g. "utf-8"</span>
+                <pre dangerouslySetInnerHTML={{ __html: `<span class="cm"># Check detected encoding</span>
+soup.original_encoding       <span class="cm"># e.g. "utf-8"</span>
 
-<span className="cm"># Encode output</span>
-soup.<span className="fn">prettify</span>(<span className="st">"utf-8"</span>)       <span className="cm"># returns bytes</span>
-soup.<span className="fn">encode</span>(<span className="st">"latin-1"</span>)
+<span class="cm"># Encode output</span>
+soup.<span class="fn">prettify</span>(<span class="st">"utf-8"</span>)       <span class="cm"># returns bytes</span>
+soup.<span class="fn">encode</span>(<span class="st">"latin-1"</span>)
 
-<span className="cm"># Unicode, Dammit — standalone encoding detector</span>
-<span className="kw">from</span> bs4 <span className="kw">import</span> UnicodeDammit
-<span className="vr">dammit</span> = <span className="fn">UnicodeDammit</span>(raw_bytes)
-<span className="kw">print</span>(dammit.unicode_markup)
-<span className="kw">print</span>(dammit.original_encoding)</pre>
+<span class="cm"># Unicode, Dammit — standalone encoding detector</span>
+<span class="kw">from</span> bs4 <span class="kw">import</span> UnicodeDammit
+<span class="vr">dammit</span> = <span class="fn">UnicodeDammit</span>(raw_bytes)
+<span class="kw">print</span>(dammit.unicode_markup)
+<span class="kw">print</span>(dammit.original_encoding)` }}></pre>
               </div>
             </section>
 

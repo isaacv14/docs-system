@@ -1,3 +1,5 @@
+import React from 'react';
+
 export default function PandasDocs() {
   const handleCopy = (e) => {
     const btn = e.currentTarget;
@@ -246,6 +248,7 @@ export default function PandasDocs() {
           font-size: 12px;
           color: #8892b0;
           line-height: 1.7;
+          white-space: pre;
         }
 
         .output-label {
@@ -363,14 +366,14 @@ export default function PandasDocs() {
               <span className="code-lang">bash</span>
               <button className="copy-btn" onClick={handleCopy}>copiar</button>
             </div>
-            <pre><span className="nm">$</span> pip install pandas</pre>
+            <pre dangerouslySetInnerHTML={{ __html: `<span class="nm">$</span> pip install pandas` }}></pre>
           </div>
           <div className="code-block" style={{ marginTop: '10px' }}>
             <div className="code-toolbar">
               <span className="code-lang">python</span>
               <button className="copy-btn" onClick={handleCopy}>copiar</button>
             </div>
-            <pre><span className="kw">import</span> pandas <span className="kw">as</span> pd   <span className="cm"># alias estándar</span></pre>
+            <pre dangerouslySetInnerHTML={{ __html: `<span class="kw">import</span> pandas <span class="kw">as</span> pd   <span class="cm"># alias estándar</span>` }}></pre>
           </div>
         </div>
 
@@ -386,16 +389,16 @@ export default function PandasDocs() {
               <span className="code-lang">python</span>
               <button className="copy-btn" onClick={handleCopy}>copiar</button>
             </div>
-            <pre><span className="cm"># Básico</span>
-df = pd.<span className="fn">read_csv</span>(<span className="st">"datos.csv"</span>)
+            <pre dangerouslySetInnerHTML={{ __html: `<span class="cm"># Básico</span>
+df = pd.<span class="fn">read_csv</span>("datos.csv")
 
-<span className="cm"># Con opciones útiles</span>
-df = pd.<span className="fn">read_csv</span>(
-    <span className="st">"datos.csv"</span>,
-    sep=<span className="st">";"</span>,          <span className="cm"># si el separador es punto y coma</span>
-    encoding=<span className="st">"utf-8"</span>, <span className="cm"># para caracteres especiales (ñ, tildes)</span>
-    index_col=<span className="nm">0</span>      <span className="cm"># usar primera columna como índice</span>
-)</pre>
+<span class="cm"># Con opciones útiles</span>
+df = pd.<span class="fn">read_csv</span>(
+    "datos.csv",
+    sep=";",          <span class="cm"># si el separador es punto y coma</span>
+    encoding="utf-8", <span class="cm"># para caracteres especiales (ñ, tildes)</span>
+    index_col=0      <span class="cm"># usar primera columna como índice</span>
+)` }}></pre>
           </div>
           <div className="tip">
             <span className="tip-icon">💡</span>
@@ -415,28 +418,23 @@ df = pd.<span className="fn">read_csv</span>(
               <span className="code-lang">python</span>
               <button className="copy-btn" onClick={handleCopy}>copiar</button>
             </div>
-            <pre>df.<span className="fn">head</span>()       <span className="cm"># primeras 5 filas</span>
-df.<span className="fn">tail</span>(<span className="nm">3</span>)      <span className="cm"># últimas 3 filas</span>
-df.<span className="fn">shape</span>        <span className="cm"># (filas, columnas)</span>
-df.<span className="fn">columns</span>      <span className="cm"># nombre de las columnas</span>
-df.<span className="fn">dtypes</span>       <span className="cm"># tipo de dato por columna</span>
-df.<span className="fn">info</span>()       <span className="cm"># resumen general + nulos</span>
-df.<span className="fn">describe</span>()   <span className="cm"># estadísticas: min, max, media...</span></pre>
+            <pre dangerouslySetInnerHTML={{ __html: `df.<span class="fn">head</span>()       <span class="cm"># primeras 5 filas</span>
+df.<span class="fn">tail</span>(3)      <span class="cm"># últimas 3 filas</span>
+df.<span class="fn">shape</span>        <span class="cm"># (filas, columnas)</span>
+df.<span class="fn">columns</span>      <span class="cm"># nombre de las columnas</span>
+df.<span class="fn">dtypes</span>       <span class="cm"># tipo de dato por columna</span>
+df.<span class="fn">info</span>()       <span class="cm"># resumen general + nulos</span>
+df.<span class="fn">describe</span>()   <span class="cm"># estadísticas: min, max, media...</span>` }}></pre>
           </div>
-          <div className="output-block">
-            <span className="output-label">→ ejemplo: df.shape</span>
-            <span className="out-val">(<span className="nm" style={{ color: '#ff6b6b' }}>1000</span>, <span className="nm" style={{ color: '#ff6b6b' }}>5</span>)  <span className="cm"># 1000 filas, 5 columnas</span></span>
-          </div>
-          <div className="output-block" style={{ marginTop: '10px' }}>
-            <span className="output-label">→ ejemplo: df.head()</span>
-<span className="out-idx">   </span><span className="out-head">nombre    edad  ciudad   salario</span>
-<br />
-<span className="out-idx">0  </span><span className="out-val">Ana       28    Panamá   1200</span>
-<br />
-<span className="out-idx">1  </span><span className="out-val">Luis      34    Colón    980</span>
-<br />
-<span className="out-idx">2  </span><span className="out-val">María     25    David    1100</span>
-          </div>
+          
+          <div className="output-block" dangerouslySetInnerHTML={{ __html: `<span class="output-label">→ ejemplo: df.shape</span>
+<span class="out-val">(<span class="nm" style="color:#ff6b6b">1000</span>, <span class="nm" style="color:#ff6b6b">5</span>)  <span class="cm"># 1000 filas, 5 columnas</span></span>` }}></div>
+
+          <div className="output-block" style={{ marginTop: '10px' }} dangerouslySetInnerHTML={{ __html: `<span class="output-label">→ ejemplo: df.head()</span>
+<span class="out-idx">   </span><span class="out-head">nombre    edad  ciudad   salario</span>
+<span class="out-idx">0  </span><span class="out-val">Ana       28    Panamá   1200</span>
+<span class="out-idx">1  </span><span class="out-val">Luis      34    Colón    980</span>
+<span class="out-idx">2  </span><span class="out-val">María     25    David    1100</span>` }}></div>
         </div>
 
         {/* 04 */}
@@ -451,19 +449,19 @@ df.<span className="fn">describe</span>()   <span className="cm"># estadísticas
               <span className="code-lang">python</span>
               <button className="copy-btn" onClick={handleCopy}>copiar</button>
             </div>
-            <pre><span className="cm"># ── Seleccionar columnas ──────────────────────</span>
-df[<span className="st">"nombre"</span>]              <span className="cm"># una columna → Serie</span>
-df[[<span className="st">"nombre"</span>, <span className="st">"edad"</span>]]    <span className="cm"># varias columnas → DataFrame</span>
+            <pre dangerouslySetInnerHTML={{ __html: `<span class="cm"># ── Seleccionar columnas ──────────────────────</span>
+df["nombre"]              <span class="cm"># una columna → Serie</span>
+df[["nombre", "edad"]]    <span class="cm"># varias columnas → DataFrame</span>
 
-<span className="cm"># ── loc: por nombre ───────────────────────────</span>
-df.<span className="at">loc</span>[<span className="nm">0</span>]                  <span className="cm"># fila con índice 0</span>
-df.<span className="at">loc</span>[<span className="nm">0</span>, <span className="st">"nombre"</span>]       <span className="cm"># fila 0, columna "nombre"</span>
-df.<span className="at">loc</span>[<span className="nm">0</span>:<span className="nm">2</span>, <span className="st">"nombre"</span>:<span className="st">"edad"</span>]  <span className="cm"># rango de filas y columnas</span>
+<span class="cm"># ── loc: por nombre ───────────────────────────</span>
+df.<span class="at">loc</span>[0]                  <span class="cm"># fila con índice 0</span>
+df.<span class="at">loc</span>[0, "nombre"]       <span class="cm"># fila 0, columna "nombre"</span>
+df.<span class="at">loc</span>[0:2, "nombre":"edad"]  <span class="cm"># rango de filas y columnas</span>
 
-<span className="cm"># ── iloc: por posición numérica ───────────────</span>
-df.<span className="at">iloc</span>[<span className="nm">0</span>]                 <span className="cm"># primera fila</span>
-df.<span className="at">iloc</span>[<span className="nm">0</span>, <span className="nm">1</span>]             <span className="cm"># fila 0, columna 1</span>
-df.<span className="at">iloc</span>[:<span className="nm">5</span>, :<span class="nm">3</span>]           <span className="cm"># primeras 5 filas, 3 columnas</span></pre>
+<span class="cm"># ── iloc: por posición numérica ───────────────</span>
+df.<span class="at">iloc</span>[0]                 <span class="cm"># primera fila</span>
+df.<span class="at">iloc</span>[0, 1]             <span class="cm"># fila 0, columna 1</span>
+df.<span class="at">iloc</span>[:5, :3]           <span class="cm"># primeras 5 filas, 3 columnas</span>` }}></pre>
           </div>
           <div className="tip">
             <span className="tip-icon">⚡</span>
@@ -483,25 +481,25 @@ df.<span className="at">iloc</span>[:<span className="nm">5</span>, :<span class
               <span className="code-lang">python</span>
               <button className="copy-btn" onClick={handleCopy}>copiar</button>
             </div>
-            <pre><span className="cm"># Filtro simple</span>
-mayores = df[df[<span className="st">"edad"</span>] &gt; <span className="nm">25</span>]
+            <pre dangerouslySetInnerHTML={{ __html: `<span class="cm"># Filtro simple</span>
+mayores = df[df["edad"] &gt; 25]
 
-<span className="cm"># Múltiples condiciones</span>
+<span class="cm"># Múltiples condiciones</span>
 resultado = df[
-    (df[<span className="st">"edad"</span>] &gt; <span className="nm">25</span>) &amp; (df[<span className="st">"ciudad"</span>] == <span className="st">"Panamá"</span>)
+    (df["edad"] &gt; 25) &amp; (df["ciudad"] == "Panamá")
 ]
 
-<span className="cm"># Condición OR</span>
+<span class="cm"># Condición OR</span>
 resultado = df[
-    (df[<span className="st">"ciudad"</span>] == <span className="st">"Panamá"</span>) | (df[<span className="st">"ciudad"</span>] == <span className="st">"Colón"</span>)
+    (df["ciudad"] == "Panamá") | (df["ciudad"] == "Colón")
 ]
 
-<span className="cm"># Buscar valores en una lista (como IN en SQL)</span>
-ciudades = [<span className="st">"Panamá"</span>, <span className="st">"David"</span>, <span className="st">"Colón"</span>]
-df[df[<span className="st">"ciudad"</span>].<span className="fn">isin</span>(ciudades)]
+<span class="cm"># Buscar valores en una lista (como IN en SQL)</span>
+ciudades = ["Panamá", "David", "Colón"]
+df[df["ciudad"]].<span class="fn">isin</span>(ciudades)
 
-<span className="cm"># Buscar texto parcial (contains)</span>
-df[df[<span className="st">"nombre"</span>].<span className="fn">str</span>.<span className="fn">contains</span>(<span className="st">"Mar"</span>)]</pre>
+<span class="cm"># Buscar texto parcial (contains)</span>
+df[df["nombre"]].<span class="fn">str</span>.<span class="fn">contains</span>("Mar")` }}></pre>
           </div>
           <div className="tip">
             <span className="tip-icon">⚠️</span>
@@ -521,26 +519,26 @@ df[df[<span className="st">"nombre"</span>].<span className="fn">str</span>.<spa
               <span className="code-lang">python</span>
               <button className="copy-btn" onClick={handleCopy}>copiar</button>
             </div>
-            <pre><span className="cm"># ── Valores nulos (NaN) ───────────────────────</span>
-df.<span className="fn">isnull</span>().<span className="fn">sum</span>()       <span className="cm"># cuántos nulos hay por columna</span>
-df.<span className="fn">dropna</span>()              <span className="cm"># eliminar filas con algún nulo</span>
-df.<span className="fn">fillna</span>(<span className="nm">0</span>)            <span className="cm"># reemplazar nulos con 0</span>
-df.<span className="fn">fillna</span>(<span className="st">"sin dato"</span>)   <span className="cm"># reemplazar con texto</span>
+            <pre dangerouslySetInnerHTML={{ __html: `<span class="cm"># ── Valores nulos (NaN) ───────────────────────</span>
+df.<span class="fn">isnull</span>().<span class="fn">sum</span>()       <span class="cm"># cuántos nulos hay por columna</span>
+df.<span class="fn">dropna</span>()              <span class="cm"># eliminar filas con algún nulo</span>
+df.<span class="fn">fillna</span>(0)            <span class="cm"># reemplazar nulos con 0</span>
+df.<span class="fn">fillna</span>("sin dato")   <span class="cm"># reemplazar con texto</span>
 
-<span className="cm"># Rellenar con la media de esa columna</span>
-media = df[<span className="st">"salario"</span>].<span className="fn">mean</span>()
-df[<span className="st">"salario"</span>].<span className="fn">fillna</span>(media, inplace=<span className="kw">True</span>)
+<span class="cm"># Rellenar con la media de esa columna</span>
+media = df["salario"].<span class="fn">mean</span>()
+df["salario"].<span class="fn">fillna</span>(media, inplace=<span class="kw">True</span>)
 
-<span className="cm"># ── Duplicados ────────────────────────────────</span>
-df.<span className="fn">duplicated</span>().<span className="fn">sum</span>()   <span className="cm"># cuántos duplicados hay</span>
-df.<span className="fn">drop_duplicates</span>()    <span className="cm"># eliminar duplicados</span>
+<span class="cm"># ── Duplicados ────────────────────────────────</span>
+df.<span class="fn">duplicated</span>().<span class="fn">sum</span>()   <span class="cm"># cuántos duplicados hay</span>
+df.<span class="fn">drop_duplicates</span>()    <span class="cm"># eliminar duplicados</span>
 
-<span className="cm"># ── Renombrar columnas ────────────────────────</span>
-df.<span className="fn">rename</span>(columns={"{"}<span className="st">"nombre"</span>: <span className="st">"name"</span>{"}"}, inplace=<span className="kw">True</span>)
+<span class="cm"># ── Renombrar columnas ────────────────────────</span>
+df.<span class="fn">rename</span>(columns={"nombre": "name"}, inplace=<span class="kw">True</span>)
 
-<span className="cm"># ── Cambiar tipo de dato ──────────────────────</span>
-df[<span className="st">"edad"</span>] = df[<span class="st">"edad"</span>].<span className="fn">astype</span>(<span className="fn">int</span>)
-df[<span className="st">"fecha"</span>] = pd.<span className="fn">to_datetime</span>(df[<span class="st">"fecha"</span>])</pre>
+<span class="cm"># ── Cambiar tipo de dato ──────────────────────</span>
+df["edad"] = df["edad"].<span class="fn">astype</span>(<span class="fn">int</span>)
+df["fecha"] = pd.<span class="fn">to_datetime</span>(df["fecha"])` }}></pre>
           </div>
           <div className="tip">
             <span className="tip-icon">💡</span>
@@ -560,18 +558,18 @@ df[<span className="st">"fecha"</span>] = pd.<span className="fn">to_datetime</s
               <span className="code-lang">python</span>
               <button className="copy-btn" onClick={handleCopy}>copiar</button>
             </div>
-            <pre><span className="cm"># Básico (incluye índice por defecto)</span>
-df.<span className="fn">to_csv</span>(<span className="st">"resultado.csv"</span>)
+            <pre dangerouslySetInnerHTML={{ __html: `<span class="cm"># Básico (incluye índice por defecto)</span>
+df.<span class="fn">to_csv</span>("resultado.csv")
 
-<span className="cm"># Sin guardar el índice (más limpio)</span>
-df.<span className="fn">to_csv</span>(<span className="st">"resultado.csv"</span>, index=<span className="kw">False</span>)
+<span class="cm"># Sin guardar el índice (más limpio)</span>
+df.<span class="fn">to_csv</span>("resultado.csv", index=<span class="kw">False</span>)
 
-<span className="cm"># Con encoding para español</span>
-df.<span className="fn">to_csv</span>(
-    <span className="st">"resultado.csv"</span>,
-    index=<span className="kw">False</span>,
-    encoding=<span className="st">"utf-8-sig"</span>  <span className="cm"># compatible con Excel</span>
-)</pre>
+<span class="cm"># Con encoding para español</span>
+df.<span class="fn">to_csv</span>(
+    "resultado.csv",
+    index=<span class="kw">False</span>,
+    encoding="utf-8-sig"  <span class="cm"># compatible con Excel</span>
+)` }}></pre>
           </div>
         </div>
 
