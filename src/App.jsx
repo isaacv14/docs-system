@@ -1,9 +1,9 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router'
 
 import Home from './Home'
-import Pandas from './Pandas'
-import BS4 from './BS4'
-import MysqlConnectorDocs from './MySQL_ConnectorPy'
+import Pandas from './docs/Pandas'
+import BS4 from './docs/BS4'
+import MysqlConnectorDocs from './docs/MySQL_ConnectorPy'
 
 
 function App() {
