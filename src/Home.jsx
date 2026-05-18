@@ -21,6 +21,11 @@ function Home () {
               <p>Learn about the Python library for parsing HTML and XML documents.</p>
               <Link to="/bs4" className="btn">View Beautiful Soup 4 Docs</Link>
             </div>
+            <div className="card">
+              <h3>MySQL Connector Python</h3>
+              <p>Explore the connector library for Python to interact with MySQL databases safely and efficiently.</p>
+              <Link to="/mysql-connector-python" className="btn">View MySQL Connector Docs</Link>
+            </div>
           </div>
         </section>
       </main>
