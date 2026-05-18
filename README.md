@@ -1,6 +1,6 @@
 # docs-system
 
-A documentation single-page application built with React and Vite. Scalable and framework-agnostic — designed to host documentation for any topic or technology.
+A documentation single-page application built with React and Vite. Scalable and framework-agnostic — designed to host summarized documentation for any technology.
 
 ## Current Docs
 
