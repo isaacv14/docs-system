@@ -4,7 +4,7 @@ A documentation single-page application built with React and Vite. Scalable and 
 
 ## Current Docs
 
-- **Pandas** — Python data analysis and CSV manipulation (Spanish)
+- **Pandas** — Essential Pandas guide for Data Engineering (Spanish)
 - **Beautiful Soup 4** — HTML/XML parsing for web scraping
 - **MySQL Connector/Python** — Official Oracle MySQL driver (DB-API 2.0)
 

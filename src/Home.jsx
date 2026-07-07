@@ -13,7 +13,7 @@ function Home () {
           <div className="feature-cards">
             <div className="card">
               <h3>Pandas</h3>
-              <p>Learn about Python's powerful data analysis library for data manipulation and analysis.</p>
+              <p>Gu&iacute;a esencial de Pandas para Data Engineering: creaci&oacute;n, transformaci&oacute;n, limpieza y exportaci&oacute;n de datos.</p>
               <Link to="/pandas" className="btn">View Pandas Docs</Link>
             </div>
             <div className="card">
